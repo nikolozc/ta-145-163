@@ -3,7 +3,7 @@
 
     Public ReadOnly dragonAttacks() As String = {"Blow Fire", "Claw", "Tail Smash"}
 
-    Public Sub dragonAttack(ByRef userHealth As Integer)
+    Public Overrides Sub Attack(ByRef userHealth As Integer)
         Dim gen As New Random
         Dim attackNum As Integer = gen.Next(0, 2)
         Select Case attackNum

@@ -7,7 +7,7 @@ Public Class Enemy
         intHealth = 100
     End Sub
 
-    Public Sub defaultAttack(ByRef userHealth As Integer)
+    Public Overridable Sub Attack(ByRef userHealth As Integer)
         Dim gen As New Random
         Dim attackNum As Integer = gen.Next(0, 1)
         Select Case attackNum
@@ -19,9 +19,12 @@ Public Class Enemy
 
     End Sub
 
-    Public ReadOnly Property Health() As Integer
+    Public Property Health() As Integer
         Get
             Return intHealth
         End Get
+        Set(value As Integer)
+            intHealth = value
+        End Set
     End Property
 End Class

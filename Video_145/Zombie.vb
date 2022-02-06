@@ -3,7 +3,7 @@
 
     Public ReadOnly zombieAttacks() As String = {"Eat Brains", "Claw", "Throw Up"}
 
-    Public Sub zombieAttack(ByRef userHealth As Integer)
+    Public Overrides Sub Attack(ByRef userHealth As Integer)
         Dim gen As New Random
         Dim attackNum As Integer = gen.Next(0, 2)
         Select Case attackNum

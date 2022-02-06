@@ -22,12 +22,18 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.picturePopEye = New System.Windows.Forms.PictureBox()
         Me.pictureEnemy = New System.Windows.Forms.PictureBox()
         Me.btnAttack = New System.Windows.Forms.Button()
         Me.progressBarPopEye = New System.Windows.Forms.ProgressBar()
         Me.progressBarEnemy = New System.Windows.Forms.ProgressBar()
         Me.btnSpawn = New System.Windows.Forms.Button()
+        Me.radioSpinach = New System.Windows.Forms.RadioButton()
+        Me.lblSpinach = New System.Windows.Forms.Label()
+        Me.timerDelay = New System.Windows.Forms.Timer(Me.components)
+        Me.lblPopeyeHealth = New System.Windows.Forms.Label()
+        Me.lblEnemyHealth = New System.Windows.Forms.Label()
         CType(Me.picturePopEye, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pictureEnemy, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -35,7 +41,7 @@ Partial Class Form1
         'picturePopEye
         '
         Me.picturePopEye.Image = Global.Game_GUI.My.Resources.Resources.PopEye
-        Me.picturePopEye.Location = New System.Drawing.Point(37, 41)
+        Me.picturePopEye.Location = New System.Drawing.Point(37, 52)
         Me.picturePopEye.Name = "picturePopEye"
         Me.picturePopEye.Size = New System.Drawing.Size(177, 276)
         Me.picturePopEye.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -44,7 +50,7 @@ Partial Class Form1
         '
         'pictureEnemy
         '
-        Me.pictureEnemy.Location = New System.Drawing.Point(582, 41)
+        Me.pictureEnemy.Location = New System.Drawing.Point(582, 52)
         Me.pictureEnemy.Name = "pictureEnemy"
         Me.pictureEnemy.Size = New System.Drawing.Size(177, 276)
         Me.pictureEnemy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -55,21 +61,21 @@ Partial Class Form1
         '
         Me.btnAttack.Location = New System.Drawing.Point(37, 12)
         Me.btnAttack.Name = "btnAttack"
-        Me.btnAttack.Size = New System.Drawing.Size(177, 23)
+        Me.btnAttack.Size = New System.Drawing.Size(82, 23)
         Me.btnAttack.TabIndex = 2
         Me.btnAttack.Text = "Attack"
         Me.btnAttack.UseVisualStyleBackColor = True
         '
         'progressBarPopEye
         '
-        Me.progressBarPopEye.Location = New System.Drawing.Point(37, 323)
+        Me.progressBarPopEye.Location = New System.Drawing.Point(37, 334)
         Me.progressBarPopEye.Name = "progressBarPopEye"
         Me.progressBarPopEye.Size = New System.Drawing.Size(177, 30)
         Me.progressBarPopEye.TabIndex = 3
         '
         'progressBarEnemy
         '
-        Me.progressBarEnemy.Location = New System.Drawing.Point(582, 323)
+        Me.progressBarEnemy.Location = New System.Drawing.Point(582, 334)
         Me.progressBarEnemy.Name = "progressBarEnemy"
         Me.progressBarEnemy.Size = New System.Drawing.Size(177, 30)
         Me.progressBarEnemy.TabIndex = 4
@@ -83,11 +89,57 @@ Partial Class Form1
         Me.btnSpawn.Text = "Spawn Enemy"
         Me.btnSpawn.UseVisualStyleBackColor = True
         '
+        'radioSpinach
+        '
+        Me.radioSpinach.AutoSize = True
+        Me.radioSpinach.Location = New System.Drawing.Point(125, 12)
+        Me.radioSpinach.Name = "radioSpinach"
+        Me.radioSpinach.Size = New System.Drawing.Size(89, 19)
+        Me.radioSpinach.TabIndex = 6
+        Me.radioSpinach.TabStop = True
+        Me.radioSpinach.Text = "Use Spinach"
+        Me.radioSpinach.UseVisualStyleBackColor = True
+        '
+        'lblSpinach
+        '
+        Me.lblSpinach.AutoSize = True
+        Me.lblSpinach.Location = New System.Drawing.Point(125, 34)
+        Me.lblSpinach.Name = "lblSpinach"
+        Me.lblSpinach.Size = New System.Drawing.Size(84, 15)
+        Me.lblSpinach.TabIndex = 7
+        Me.lblSpinach.Text = "Spinach Left: 3"
+        '
+        'timerDelay
+        '
+        Me.timerDelay.Interval = 1000
+        '
+        'lblPopeyeHealth
+        '
+        Me.lblPopeyeHealth.AutoSize = True
+        Me.lblPopeyeHealth.Location = New System.Drawing.Point(37, 373)
+        Me.lblPopeyeHealth.Name = "lblPopeyeHealth"
+        Me.lblPopeyeHealth.Size = New System.Drawing.Size(45, 15)
+        Me.lblPopeyeHealth.TabIndex = 8
+        Me.lblPopeyeHealth.Text = "Health:"
+        '
+        'lblEnemyHealth
+        '
+        Me.lblEnemyHealth.AutoSize = True
+        Me.lblEnemyHealth.Location = New System.Drawing.Point(582, 373)
+        Me.lblEnemyHealth.Name = "lblEnemyHealth"
+        Me.lblEnemyHealth.Size = New System.Drawing.Size(45, 15)
+        Me.lblEnemyHealth.TabIndex = 9
+        Me.lblEnemyHealth.Text = "Health:"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 371)
+        Me.ClientSize = New System.Drawing.Size(800, 397)
+        Me.Controls.Add(Me.lblEnemyHealth)
+        Me.Controls.Add(Me.lblPopeyeHealth)
+        Me.Controls.Add(Me.lblSpinach)
+        Me.Controls.Add(Me.radioSpinach)
         Me.Controls.Add(Me.btnSpawn)
         Me.Controls.Add(Me.progressBarEnemy)
         Me.Controls.Add(Me.progressBarPopEye)
@@ -99,6 +151,7 @@ Partial Class Form1
         CType(Me.picturePopEye, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pictureEnemy, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -108,4 +161,9 @@ Partial Class Form1
     Friend WithEvents progressBarPopEye As ProgressBar
     Friend WithEvents progressBarEnemy As ProgressBar
     Friend WithEvents btnSpawn As Button
+    Friend WithEvents radioSpinach As RadioButton
+    Friend WithEvents lblSpinach As Label
+    Friend WithEvents timerDelay As Timer
+    Friend WithEvents lblPopeyeHealth As Label
+    Friend WithEvents lblEnemyHealth As Label
 End Class
