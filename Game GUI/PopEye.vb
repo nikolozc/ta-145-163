@@ -3,29 +3,32 @@
     Public Const Name As String = "Popeye"
     Public ReadOnly Attacks() As String = {"Punch", "Kick", "Anchor Throw"}
     Public hasSpinach As Boolean = False
-    Private intHealth As Integer = 100
+    Public Shared StartHealth As Integer = 250
+    Public attackNum As Integer
+    Public ReadOnly AttackDamage() As Integer = {5, 10, 15}
+    Private intHealth As Integer = StartHealth
 
     Public Sub Attack(ByRef enemyHealth As Integer)
         Dim gen As New Random
-        Dim attackNum As Integer = gen.Next(3)
+        attackNum = gen.Next(3)
         Select Case attackNum
             Case 0
                 If hasSpinach Then
-                    enemyHealth -= (5 * 2)
+                    enemyHealth -= (AttackDamage(attackNum) * 2)
                 Else
-                    enemyHealth -= 5
+                    enemyHealth -= AttackDamage(attackNum)
                 End If
             Case 1
                 If hasSpinach Then
-                    enemyHealth -= (10 * 2)
+                    enemyHealth -= (AttackDamage(attackNum) * 2)
                 Else
-                    enemyHealth -= 10
+                    enemyHealth -= AttackDamage(attackNum)
                 End If
             Case 2
                 If hasSpinach Then
-                    enemyHealth -= (15 * 2)
+                    enemyHealth -= (AttackDamage(attackNum) * 2)
                 Else
-                    enemyHealth -= 15
+                    enemyHealth -= AttackDamage(attackNum)
                 End If
         End Select
     End Sub

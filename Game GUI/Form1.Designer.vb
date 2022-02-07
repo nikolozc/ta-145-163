@@ -34,6 +34,7 @@ Partial Class Form1
         Me.timerDelay = New System.Windows.Forms.Timer(Me.components)
         Me.lblPopeyeHealth = New System.Windows.Forms.Label()
         Me.lblEnemyHealth = New System.Windows.Forms.Label()
+        Me.btnHideAndShow = New System.Windows.Forms.Button()
         CType(Me.picturePopEye, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pictureEnemy, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -69,6 +70,7 @@ Partial Class Form1
         'progressBarPopEye
         '
         Me.progressBarPopEye.Location = New System.Drawing.Point(37, 334)
+        Me.progressBarPopEye.Maximum = 250
         Me.progressBarPopEye.Name = "progressBarPopEye"
         Me.progressBarPopEye.Size = New System.Drawing.Size(177, 30)
         Me.progressBarPopEye.TabIndex = 3
@@ -131,11 +133,21 @@ Partial Class Form1
         Me.lblEnemyHealth.TabIndex = 9
         Me.lblEnemyHealth.Text = "Health:"
         '
+        'btnHideAndShow
+        '
+        Me.btnHideAndShow.Location = New System.Drawing.Point(12, 407)
+        Me.btnHideAndShow.Name = "btnHideAndShow"
+        Me.btnHideAndShow.Size = New System.Drawing.Size(776, 33)
+        Me.btnHideAndShow.TabIndex = 10
+        Me.btnHideAndShow.Text = "Hide Log"
+        Me.btnHideAndShow.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 397)
+        Me.ClientSize = New System.Drawing.Size(800, 442)
+        Me.Controls.Add(Me.btnHideAndShow)
         Me.Controls.Add(Me.lblEnemyHealth)
         Me.Controls.Add(Me.lblPopeyeHealth)
         Me.Controls.Add(Me.lblSpinach)
@@ -166,4 +178,5 @@ Partial Class Form1
     Friend WithEvents timerDelay As Timer
     Friend WithEvents lblPopeyeHealth As Label
     Friend WithEvents lblEnemyHealth As Label
+    Friend WithEvents btnHideAndShow As Button
 End Class

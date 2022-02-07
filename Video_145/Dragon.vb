@@ -1,11 +1,19 @@
 ﻿Public Class Dragon
     Inherits Enemy
 
-    Public ReadOnly dragonAttacks() As String = {"Blow Fire", "Claw", "Tail Smash"}
+    Sub New()
+        strName = "Dragon"
+        Attacks(0) = "Blow Fire"
+        Attacks(1) = "Claw"
+        Attacks(2) = "Tail Smash"
+        AttackDamage(0) = 15
+        AttackDamage(1) = 8
+        AttackDamage(2) = 10
+    End Sub
 
     Public Overrides Sub Attack(ByRef userHealth As Integer)
         Dim gen As New Random
-        Dim attackNum As Integer = gen.Next(0, 2)
+        Dim attackNum As Integer = gen.Next(0, 3)
         Select Case attackNum
             Case 0
                 userHealth -= 15
